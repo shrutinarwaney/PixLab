@@ -1,0 +1,5 @@
+1. Pink: [r=255,g=0,b=255]
+2. Yellow: [r=255,g=255,b=0]
+3. Purple: [r=128,g=0,b=255]
+4. White: [r=0,g=0,b=0]
+5. Dark grey: [r=128,g=128,b=128]
