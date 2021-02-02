@@ -200,6 +200,59 @@ public class Picture extends SimplePicture {
 		}
 	}
 
+	public void keepOnlyBlue() {
+
+		Pixel[][] picGrid = this.getPixels2D();
+		for( int row = 0; row < picGrid.length; row++ ) {
+			for( int col = 0; col < picGrid[0].length; col++ ) {
+				picGrid[ row ][ col ].setRed( 0 );
+				picGrid[ row ][ col ].setGreen( 0 );
+			}
+		}
+
+	}
+
+	public void negate() {
+		Pixel[][] picGrid = this.getPixels2D();
+		Pixel current = null;
+		for( int row = 0; row < picGrid.length; row++ ) {
+			for( int col = 0; col < picGrid[0].length; col++ ) {
+				current = picGrid[ row ][ col ];
+				current.setRed( 255 - current.getRed() );
+				current.setGreen( 255 - current.getGreen() );
+				current.setBlue( 255 - current.getBlue() );
+			}
+		}
+	}
+
+	public void grayscale() {
+
+		Pixel[][] picGrid = this.getPixels2D();
+		Pixel current = null;
+		int sum = 0;
+		int mean = 0;
+		for( int row = 0; row < picGrid.length; row++ ) {
+			for( int col = 0; col < picGrid[0].length; col++ ) {
+				current = picGrid[ row ][ col ];
+				sum = current.getRed() + current.getGreen() + current.getBlue();
+				mean = sum / 3;
+				current.setColor( new Color( mean, mean, mean ) );
+			}
+		}
+
+	}
+
+	public void fixUnderwater() {
+		Pixel[][] picGrid = this.getPixels2D();
+		Pixel current = null;
+		for( int row = 0; row < picGrid.length; row++ ) {
+			for( int col = 0; col < picGrid[0].length; col++ ) {
+				current = picGrid[ row ][ col ];
+				current.setRed( current.getRed() * 3 );
+			}
+		}
+	}
+
 	/*
 	 * Main method for testing - each class in Java can have a main method
 	 */
